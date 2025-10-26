@@ -6,7 +6,7 @@ import hero from "../assets/hero.png"
 const HeroSection = () => {
   return (
     <section className="text-center pt-10 px-4 bg-[#f5f5f5] flex flex-col items-center">
-      {/* Main Heading */}
+      
       <h1 className="text-5xl md:text-6xl font-bold">
         We Build <br />
         <span className="bg-gradient-to-r from-purple-800 to-purple-600 text-transparent bg-clip-text ">
@@ -14,7 +14,6 @@ const HeroSection = () => {
         </span> Apps
       </h1>
 
-      {/* Subtitle */}
       <p className="mt-6 text-gray-600 text-lg">
         At <span className="font-semibold">HERO.IO</span>, we craft innovative
         apps designed to make everyday life simpler, smarter, and more exciting.
@@ -23,7 +22,7 @@ const HeroSection = () => {
         an impact.
       </p>
 
-      {/* Store Buttons */}
+    
       <div className="flex justify-center gap-4 mt-8 flex-wrap">
         <button className="btn bg-white py-6 border-2 border-gray-500 ">
           <img src={playstore} alt="Play Store" className="h-6 w-auto" />

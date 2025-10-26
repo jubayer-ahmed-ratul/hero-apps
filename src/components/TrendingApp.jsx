@@ -1,16 +1,37 @@
-import React from "react";
-import appsData from "../../public/topApps.json";
-import { Download } from "lucide-react";
-import { Star } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { Download, Star } from "lucide-react";
+import { Link } from "react-router";
+
 const TrendingApp = () => {
+  const [appsData, setAppsData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchApps = async () => {
+      const res = await fetch("/topApps.json");
+      const data = await res.json();
+      setAppsData(data);
+      setLoading(false);
+    };
+
+    fetchApps();
+  }, []);
+
+  if (loading)
+    return (
+      <p className="text-center py-10 font-bold text-3xl">
+        <span className="loading loading-spinner text-primary"></span>
+        Loading...
+      </p>
+    );
+
   return (
-    <section className=" py-20 px-5 md:px-10 lg:px-0 max-w-[1400px] mx-auto flex flex-col items-center">
+    <section className="py-20 px-5 md:px-10 lg:px-0 max-w-[1400px] mx-auto flex flex-col items-center">
       <h2 className="text-5xl text-center font-semibold mb-3">Trending Apps</h2>
       <p className="text-xl text-center text-gray-600 mb-10">
         Explore All Trending Apps on the Market developed by us
       </p>
 
-      {/* apps container */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 ">
         {appsData.map((app) => (
           <div
@@ -25,16 +46,12 @@ const TrendingApp = () => {
             <h3 className="text-lg font-semibold mb-2 mt-5">{app.title}</h3>
 
             <div className="flex justify-between mt-5">
-              <div className="flex gap-3   btn text-green-600 bg-green-100 text-l">
-                <p>
-                  <Download />
-                </p>
+              <div className="flex gap-3 btn text-green-600 bg-green-100 text-l">
+                <Download />
                 <p>{app.downloads}</p>
               </div>
-              <div className="flex gap-3 btn text-orange-400 bg-orange-100 text-l ">
-                <p>
-                  <Star />
-                </p>
+              <div className="flex gap-3 btn text-orange-400 bg-orange-100 text-l">
+                <Star />
                 <p>{app.ratingAvg}</p>
               </div>
             </div>
@@ -43,9 +60,10 @@ const TrendingApp = () => {
       </div>
 
       <button className="btn text-white bg-linear-to-r from-purple-800 to-purple-600 px-8 py-6 text-lg gap-2 hover:scale-105 transition-all mt-10">
-        Show ALL
+        <Link to="/apps">Show ALL</Link>
       </button>
     </section>
+    
   );
 };
 

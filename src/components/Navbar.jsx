@@ -1,13 +1,17 @@
 import React from "react";
 import { Github } from "lucide-react";
 import logo from "../assets/logo.png" ;
+import { Link } from "react-router";
+import ApplicationsPage from "../pages/ApplicationsPage";
 
 const Navbar = () => {
   const menuItems = (
     <>
-      <li><a className="text-purple-800 font-semibold text-xl">Home</a></li>
-      <li><a className="text-purple-800 font-semibold text-xl">Apps</a></li>
-      <li><a className="text-purple-800 font-semibold text-xl">Installation</a></li>
+     
+      <li><Link className="text-purple-800 font-semibold text-xl" to="/">Home</Link></li>
+      <li><Link className="text-purple-800 font-semibold text-xl" to="/apps">Apps</Link></li>
+      <li><Link className="text-purple-800 font-semibold text-xl" to="/installations">Installation</Link></li>
+    
     </>
   );
 
