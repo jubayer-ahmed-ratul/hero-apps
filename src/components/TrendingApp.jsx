@@ -1,10 +1,10 @@
 import React from "react";
-import appsData from "../../public/topApps.json"
+import appsData from "../../public/topApps.json";
 import { Download } from "lucide-react";
 import { Star } from "lucide-react";
 const TrendingApp = () => {
   return (
-    <section className=" py-20 max-w-[1400px] mx-auto flex flex-col items-center">
+    <section className=" py-20 px-5 md:px-10 lg:px-0 max-w-[1400px] mx-auto flex flex-col items-center">
       <h2 className="text-5xl text-center font-semibold mb-3">Trending Apps</h2>
       <p className="text-xl text-center text-gray-600 mb-10">
         Explore All Trending Apps on the Market developed by us
@@ -25,25 +25,26 @@ const TrendingApp = () => {
             <h3 className="text-lg font-semibold mb-2 mt-5">{app.title}</h3>
 
             <div className="flex justify-between mt-5">
-
-               <div className="flex gap-3   btn text-green-600 bg-green-100 text-l"> 
-                 <p><Download /></p>
+              <div className="flex gap-3   btn text-green-600 bg-green-100 text-l">
+                <p>
+                  <Download />
+                </p>
                 <p>{app.downloads}</p>
-                </div>
-               <div className="flex gap-3 btn text-orange-400 bg-orange-100 text-l "> 
-                 <p><Star /></p>
+              </div>
+              <div className="flex gap-3 btn text-orange-400 bg-orange-100 text-l ">
+                <p>
+                  <Star />
+                </p>
                 <p>{app.ratingAvg}</p>
-                </div>
-              
+              </div>
             </div>
           </div>
         ))}
       </div>
 
       <button className="btn text-white bg-linear-to-r from-purple-800 to-purple-600 px-8 py-6 text-lg gap-2 hover:scale-105 transition-all mt-10">
-            Show ALL</button>
-
-
+        Show ALL
+      </button>
     </section>
   );
 };

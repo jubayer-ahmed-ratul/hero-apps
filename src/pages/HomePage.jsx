@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import HeroSection from '../components/HeroSection';
 import Numbers from '../components/Numbers';
 import TrendingApp from '../components/TrendingApp';
+import Footer from '../components/Footer';
 
 
 const HomePage = () => {
@@ -12,6 +13,7 @@ const HomePage = () => {
            <HeroSection></HeroSection>
            <Numbers/>
            <TrendingApp/>
+           <Footer></Footer>
         </div>
     );
 };

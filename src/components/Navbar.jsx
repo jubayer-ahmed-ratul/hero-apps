@@ -16,10 +16,10 @@ const Navbar = () => {
 
       <div className="max-w-[1400px] mx-auto navbar">
 
-        
-        {/* Left Section */}
+    
         <div className="navbar-start">
-          {/* Mobile Menu */}
+          
+
           <div className="dropdown">
             <button tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
@@ -45,7 +45,7 @@ const Navbar = () => {
             </ul>
           </div>
 
-          {/* Logo + Name */}
+         
           <div className="flex items-center gap-1">
             <img className="h-10 w-auto" src={logo} alt="Logo" />
             <a className=" text-2xl text-purple-800 font-bold normal-case">
@@ -54,12 +54,11 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Center Menu */}
+       
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{menuItems}</ul>
         </div>
 
-        {/* Right Button */}
         <div className="navbar-end">
           <button className="btn text-white bg-linear-to-r from-purple-800 to-purple-600 px-6 py-6 text-lg gap-2 hover:scale-105 transition-all">
             <Github size={32} className="rounded-full p-1" />
