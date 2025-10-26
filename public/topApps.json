@@ -1,0 +1,146 @@
+[
+  {
+    "image": "https://i.ibb.co.com/FqfDkmfx/note.webp",
+    "title": "SkyNote",
+    "companyName": "CloudApps Inc.",
+    "id": 1,
+    "description": "SkyNote is a modern note-taking app built for people who value simplicity and synchronization. It transforms your scattered thoughts into organized ideas by letting you create, edit, and categorize notes across all your devices in real time. Each note automatically syncs to the cloud, ensuring your data is safe even if you switch devices. The interface is distraction-free, allowing you to focus purely on writing. You can attach photos, documents, or voice recordings, and use tags to easily search for anything later. Advanced text formatting and Markdown support make SkyNote ideal for professionals, students, and creatives alike.\n\nBeyond basic note-taking, SkyNote also features smart reminders, version history, and collaboration options for shared projects. Team members can comment, suggest edits, and stay updated on every change. With its minimal design, dark mode, and offline support, SkyNote provides a smooth writing experience anywhere, anytime. Whether you’re journaling, planning your day, or outlining a project, this app turns your thoughts into a well-structured digital workspace.",
+    "size": 32.5,
+    "reviews": 1420,
+    "ratingAvg": 4.5,
+    "downloads": "5M",
+    "ratings": [
+      { "name": "1 star", "count": 50 },
+      { "name": "2 star", "count": 70 },
+      { "name": "3 star", "count": 120 },
+      { "name": "4 star", "count": 480 },
+      { "name": "5 star", "count": 700 }
+    ]
+  },
+  {
+    "image": "https://i.ibb.co.com/SD0wzCYR/fitness.jpg",
+    "title": "FitTrack Pro",
+    "companyName": "Wellness Works",
+    "id": 2,
+    "description": "FitTrack Pro is your all-in-one personal fitness companion designed to keep you motivated and on track. The app intelligently analyzes your daily activity, sleep, and nutrition patterns to create personalized fitness goals. With support for both indoor and outdoor workouts, it tracks your steps, calories, and heart rate using real-time data from your wearable devices. The app also offers guided workout sessions and detailed progress analytics that help you improve performance week by week.\n\nFitTrack Pro encourages consistency through its gamified streak system, rewarding you for maintaining healthy habits. You can set challenges with friends or join community groups to stay inspired. The integrated food tracker and hydration reminders help balance your fitness routine holistically. Whether you’re trying to lose weight, gain muscle, or simply stay active, FitTrack Pro turns your data into actionable insights. Its smooth interface, customizable dashboards, and motivational design make fitness tracking not just useful—but genuinely enjoyable.",
+    "size": 58.2,
+    "reviews": 870,
+    "ratingAvg": 4.3,
+    "downloads": "3M",
+    "ratings": [
+      { "name": "1 star", "count": 60 },
+      { "name": "2 star", "count": 80 },
+      { "name": "3 star", "count": 140 },
+      { "name": "4 star", "count": 310 },
+      { "name": "5 star", "count": 280 }
+    ]
+  },
+  {
+    "image": "https://i.ibb.co.com/203rWSf0/taskmamnage.jpg",
+    "title": "TaskFlow",
+    "companyName": "NextGen Labs",
+    "id": 3,
+    "description": "TaskFlow brings structure and clarity to your workday through powerful task management. Built for both teams and individuals, the app allows you to create tasks, assign deadlines, and track progress through intuitive Kanban boards and checklists. Each project comes with customizable workflows, color-coded labels, and smart filters that help you focus on what matters most. TaskFlow syncs seamlessly across devices, ensuring that your to-dos are always up to date.\n\nThe app’s intelligent insights show how you spend your time and which tasks take the longest, helping you optimize your productivity. Collaboration features include team chat, real-time notifications, and shared boards, reducing the need for constant meetings. You can integrate TaskFlow with your favorite tools like Google Calendar, Slack, and Notion to centralize your workflow. Whether you’re managing personal goals or company projects, TaskFlow empowers you to turn chaos into clarity—one task at a time.",
+    "size": 45.8,
+    "reviews": 2300,
+    "ratingAvg": 4.7,
+    "downloads": "7M",
+    "ratings": [
+      { "name": "1 star", "count": 90 },
+      { "name": "2 star", "count": 120 },
+      { "name": "3 star", "count": 200 },
+      { "name": "4 star", "count": 720 },
+      { "name": "5 star", "count": 1170 }
+    ]
+  },
+  {
+    "image": "https://i.ibb.co.com/Cphb0BTv/finance.jpg",
+    "title": "BudgetMate",
+    "companyName": "FinTrack Co.",
+    "id": 4,
+    "description": "BudgetMate is a powerful financial management app designed to simplify your budgeting and expense tracking experience. It helps you understand where your money goes by automatically categorizing transactions and generating insightful reports. You can set monthly budgets for categories like groceries, bills, or entertainment and get instant alerts when you approach your limits. The app connects securely with your bank accounts, giving you real-time visibility into your finances.\n\nBudgetMate’s analytics dashboard breaks down spending patterns, helping you identify saving opportunities. You can set financial goals—like paying off debt or saving for a vacation—and monitor your progress visually. The app also supports multiple currencies and integrates with investment tracking for a complete financial picture. With its clean design and data encryption, BudgetMate is not only intuitive but also safe. It’s the perfect digital partner for building smarter money habits and achieving long-term financial stability.",
+    "size": 38.4,
+    "reviews": 1340,
+    "ratingAvg": 4.1,
+    "downloads": "4M",
+    "ratings": [
+      { "name": "1 star", "count": 130 },
+      { "name": "2 star", "count": 160 },
+      { "name": "3 star", "count": 210 },
+      { "name": "4 star", "count": 390 },
+      { "name": "5 star", "count": 450 }
+    ]
+  },
+  {
+    "image": "https://i.ibb.co.com/vxk4gVdY/editing.webp",
+    "title": "PhotoEase",
+    "companyName": "PixelCraft Studio",
+    "id": 5,
+    "description": "PhotoEase redefines photo editing with its combination of professional tools and simplicity. Whether you’re a beginner or a photographer, this app provides everything you need to enhance your photos in seconds. The AI-powered enhancement tools automatically adjust lighting, contrast, and colors while keeping your images natural. You can apply stunning filters, remove blemishes, and even change backgrounds with a single tap. Its non-destructive editing system ensures that your originals are always safe.\n\nPhotoEase also supports layer-based editing, RAW format, and batch processing for professional workflows. Built-in tutorials help you master every feature quickly. The app includes creative options like text overlays, stickers, and one-tap collage templates. With seamless cloud sync and offline support, you can edit anytime, anywhere. Designed with speed and aesthetics in mind, PhotoEase gives you the power of a desktop editor—right in your pocket.",
+    "size": 76.9,
+    "reviews": 2980,
+    "ratingAvg": 4.6,
+    "downloads": "9M",
+    "ratings": [
+      { "name": "1 star", "count": 100 },
+      { "name": "2 star", "count": 150 },
+      { "name": "3 star", "count": 250 },
+      { "name": "4 star", "count": 720 },
+      { "name": "5 star", "count": 1760 }
+    ]
+  },
+  {
+    "image": "https://i.ibb.co.com/zV8Kjkzk/langagee.png",
+    "title": "LinguaGo",
+    "companyName": "EduSoft",
+    "id": 6,
+    "description": "LinguaGo transforms the way you learn new languages through interactive and gamified learning. The app combines conversation-based lessons, flashcards, and listening exercises to improve your fluency quickly. AI-driven pronunciation feedback helps you sound more natural, while spaced repetition ensures vocabulary retention. Each course is divided into small, achievable milestones that keep you motivated without feeling overwhelmed.\n\nLinguaGo’s global community allows you to practice with native speakers via chat and voice exchanges. You can also compete in leaderboards and earn badges for completing lessons. The app tracks your progress across reading, writing, listening, and speaking, giving you a detailed performance summary. With support for over 20 languages and offline lessons, LinguaGo makes learning convenient and effective—perfect for travelers, students, and professionals alike.",
+    "size": 64.3,
+    "reviews": 1790,
+    "ratingAvg": 4.4,
+    "downloads": "6M",
+    "ratings": [
+      { "name": "1 star", "count": 110 },
+      { "name": "2 star", "count": 130 },
+      { "name": "3 star", "count": 190 },
+      { "name": "4 star", "count": 560 },
+      { "name": "5 star", "count": 800 }
+    ]
+  },
+  {
+    "image": "https://i.ibb.co.com/byF6vm7/cloudestorage.jpg",
+    "title": "DriveSync",
+    "companyName": "SecureCloud Ltd.",
+    "id": 7,
+    "description": "DriveSync is a secure and reliable cloud storage solution that lets you back up, sync, and share files effortlessly. Designed for both individuals and businesses, it provides end-to-end encryption to ensure your data remains private. Automatic synchronization keeps your files up to date across all devices, while smart version control allows you to restore older copies when needed. With advanced file sharing, you can collaborate safely without worrying about leaks or unauthorized access.\n\nDriveSync also includes powerful productivity tools like document preview, real-time editing, and integration with Microsoft Office and Google Workspace. Its storage optimization system compresses large files to save space without losing quality. The user interface is elegant and intuitive, offering quick drag-and-drop uploads and customizable folder organization. Whether you're managing work projects or personal memories, DriveSync makes digital storage effortless and secure.",
+    "size": 89.6,
+    "reviews": 2450,
+    "ratingAvg": 4.2,
+    "downloads": "8M",
+    "ratings": [
+      { "name": "1 star", "count": 160 },
+      { "name": "2 star", "count": 190 },
+      { "name": "3 star", "count": 300 },
+      { "name": "4 star", "count": 720 },
+      { "name": "5 star", "count": 1080 }
+    ]
+  },
+  {
+    "image": "https://i.ibb.co.com/Tx896HjM/meditation.jpg",
+    "title": "MindCalm",
+    "companyName": "Zenify Apps",
+    "id": 8,
+    "description": "MindCalm helps you find balance in your daily life through mindfulness and meditation. It combines science-backed breathing exercises, guided meditations, and sleep stories to reduce stress and improve focus. The app adjusts its sessions to your emotional state, offering personalized recommendations for relaxation or concentration. A minimal, nature-inspired interface ensures that every moment spent using MindCalm feels peaceful and refreshing.\n\nThe app includes progress tracking, allowing you to monitor how your stress levels and sleep quality improve over time. Its ambient sounds—ranging from ocean waves to forest rain—create the perfect atmosphere for deep relaxation. MindCalm also features streaks and achievements to encourage consistency in your mindfulness journey. Whether you need to unwind before bed or recharge during work breaks, MindCalm is your pocket-sized wellness companion that nurtures mental clarity and emotional well-being.",
+    "size": 52.1,
+    "reviews": 1980,
+    "ratingAvg": 4.8,
+    "downloads": "6M",
+    "ratings": [
+      { "name": "1 star", "count": 40 },
+      { "name": "2 star", "count": 60 },
+      { "name": "3 star", "count": 100 },
+      { "name": "4 star", "count": 480 },
+      { "name": "5 star", "count": 1300 }
+    ]
+  }
+]
