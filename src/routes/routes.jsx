@@ -1,27 +1,32 @@
-import { createBrowserRouter } from "react-router";
-import { RouterProvider } from "react-router/dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import HomeLayout from "../Layout/HomeLayout";
-import ApplicationsPage from "../pages/ApplicationsPage"
-import InstallationPage from "../pages/InstallationPage"
+import ApplicationsPage from "../pages/ApplicationsPage";
+import InstallationPage from "../pages/InstallationPage";
+import ApplicationPage from "../pages/ApplicationPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomeLayout/>,
-    children:[
+    element: <HomeLayout />,
+    children: [
       {
-        path:"/",
-        element:<HomePage/>
+        path: "/",
+        element: <HomePage />,
       },
       {
-        path:"apps",
-        element:<ApplicationsPage/>
-      },{
-        path:"installations",
-        element:<InstallationPage />
-      }
-    ]
+        path: "apps",
+        element: <ApplicationsPage />,
+      },
+      {
+        path: "installations",
+        element: <InstallationPage />,
+      },
+      {
+        path: "apps/:id",
+        element: <ApplicationPage />, 
+      },
+    ],
   },
   {
     path: "/auth",

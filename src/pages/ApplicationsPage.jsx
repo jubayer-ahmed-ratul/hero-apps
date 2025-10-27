@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { Download,Star } from "lucide-react";
+import { Download, Star } from "lucide-react";
+import { useNavigate } from "react-router-dom"; 
 
 const ApplicationsPage = () => {
   const [appsData, setAppsData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     fetch("/allApps.json")
       .then((res) => res.json())
       .then((data) => setAppsData(data))
-      .finally(() => setLoading(false)); 
+      .finally(() => setLoading(false));
   }, []);
-
 
   const filteredApps = appsData.filter((app) =>
     app.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
 
   if (loading)
     return (
@@ -42,7 +42,6 @@ const ApplicationsPage = () => {
             ({filteredApps.length}) Apps Found
           </h3>
 
-        
           <label className="input flex items-center border px-3 py-2 rounded-lg">
             <svg
               className="h-[1.5em] opacity-50"
@@ -71,39 +70,36 @@ const ApplicationsPage = () => {
           </label>
         </div>
 
- 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-10">
           {filteredApps.map((app) => (
-             <div
-            key={app.id}
-            className="bg-white p-4 rounded-2xl shadow hover:shadow-lg transition"
-          >
-            <img
-              src={app.image}
-              alt={app.title}
-              className="w-full h-70 object-cover rounded-xl mb-4"
-            />
-            <h3 className="text-lg font-semibold mb-2 mt-5">{app.title}</h3>
+            <div
+              key={app.id}
+              onClick={() => navigate(`/apps/${app.id}`)} 
+              className="bg-white p-4 rounded-2xl shadow hover:shadow-lg transition cursor-pointer hover:scale-105"
+            >
+              <img
+                src={app.image}
+                alt={app.title}
+                className="w-full h-70 object-cover rounded-xl mb-4"
+              />
+              <h3 className="text-lg font-semibold mb-2 mt-5">{app.title}</h3>
 
-            <div className="flex justify-between mt-5">
-              <div className="flex gap-3 btn text-green-600 bg-green-100 text-l">
-                <Download />
-                <p>{app.downloads}</p>
-              </div>
-              <div className="flex gap-3 btn text-orange-400 bg-orange-100 text-l">
-                <Star />
-                <p>{app.ratingAvg}</p>
+              <div className="flex justify-between mt-5">
+                <div className="flex gap-3 btn text-green-600 bg-green-100 text-l">
+                  <Download />
+                  <p>{app.downloads}</p>
+                </div>
+                <div className="flex gap-3 btn text-orange-400 bg-orange-100 text-l">
+                  <Star />
+                  <p>{app.ratingAvg}</p>
+                </div>
               </div>
             </div>
-          </div>
           ))}
         </div>
 
-    
         {filteredApps.length === 0 && (
-          <p className="text-center text-gray-500 mt-10 text-lg">
-            No apps found 
-          </p>
+          <p className="text-center text-gray-500 mt-10 text-lg">No apps found</p>
         )}
       </div>
     </div>
