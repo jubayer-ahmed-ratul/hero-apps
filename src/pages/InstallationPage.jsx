@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { ChevronDown, Download, Star } from "lucide-react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const InstallationPage = () => {
   const [installedApps, setInstalledApps] = useState([]);
   const [sortedApps, setSortedApps] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true); 
 
   useEffect(() => {
     const apps = JSON.parse(localStorage.getItem("installedApps")) || [];
-    setInstalledApps(apps);
-    setSortedApps(apps);
+    const uniqueApps = Array.from(new Map(apps.map(app => [app.id, app])).values());
+    setInstalledApps(uniqueApps);
+    setSortedApps(uniqueApps);
+    setIsLoading(false); 
   }, []);
 
   const sortApps = (order) => {
@@ -20,6 +25,26 @@ const InstallationPage = () => {
     setIsOpen(false);
   };
 
+  const handleUninstall = (id, title) => {
+    const filtered = installedApps.filter((app) => app.id !== id);
+    setInstalledApps(filtered);
+    setSortedApps(filtered);
+    localStorage.setItem("installedApps", JSON.stringify(filtered));
+    toast.info(`${title} uninstalled successfully!`, {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
+  };
+
+  if (isLoading) {
+    return null; 
+    
+  }
+
   return (
     <div className="max-w-[1400px] mx-auto px-4 py-10">
       <h1 className="text-center text-4xl md:text-5xl font-bold mb-4">
@@ -28,11 +53,10 @@ const InstallationPage = () => {
 
       {installedApps.length === 0 ? (
         <p className="text-center text-gray-500 mt-10 text-lg">
-          No apps installed yet 😢
+          No apps installed yet 
         </p>
       ) : (
         <>
-          {/* Sorting Dropdown */}
           <div className="flex justify-end mb-6 relative">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -62,7 +86,6 @@ const InstallationPage = () => {
             )}
           </div>
 
-          {/* Installed Apps */}
           <div className="flex flex-col gap-6">
             {sortedApps.map((app) => (
               <div
@@ -90,14 +113,18 @@ const InstallationPage = () => {
                     </div>
                   </div>
                 </div>
-                <button className="px-4 py-2 mt-4 md:mt-0 bg-red-500 text-white rounded-lg cursor-not-allowed" disabled>
-                  Installed
+                <button
+                  onClick={() => handleUninstall(app.id, app.title)}
+                  className="px-4 py-2 mt-4 md:mt-0 bg-red-500 text-white rounded-lg hover:bg-red-600 transition"
+                >
+                  Uninstall
                 </button>
               </div>
             ))}
           </div>
         </>
       )}
+      <ToastContainer />
     </div>
   );
 };

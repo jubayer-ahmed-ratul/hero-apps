@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Download, Star, ThumbsUp } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from "recharts";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ApplicationPage = () => {
   const { id } = useParams();
@@ -33,6 +35,14 @@ const ApplicationPage = () => {
         JSON.stringify([...installedApps, app])
       );
     }
+    toast.success(`${app.title} installed successfully!`, {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
   };
 
   if (loading)
@@ -45,9 +55,7 @@ const ApplicationPage = () => {
 
   if (!app)
     return (
-      <p className="text-center text-gray-500 mt-10 text-lg">
-        App not found 😢
-      </p>
+      <p className="text-center text-gray-500 mt-10 text-lg">App not found</p>
     );
 
   const chartData = app.ratings
@@ -157,6 +165,8 @@ const ApplicationPage = () => {
           </p>
         ))}
       </div>
+
+      <ToastContainer />
     </div>
   );
 };

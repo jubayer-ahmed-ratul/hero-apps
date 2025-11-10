@@ -4,7 +4,8 @@ import HomeLayout from "../Layout/HomeLayout";
 import ApplicationsPage from "../pages/ApplicationsPage";
 import InstallationPage from "../pages/InstallationPage";
 import ApplicationPage from "../pages/ApplicationPage";
-import NoApps from "../components/NoApps"; 
+import NoApps from "../components/NoApps"; // import করুন
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
         element: <ApplicationsPage />,
       },
       {
-        path: "no-apps", 
+        path: "no-apps",
         element: <NoApps />,
       },
       {
@@ -29,17 +30,17 @@ const router = createBrowserRouter([
       },
       {
         path: "apps/:id",
-        element: <ApplicationPage />, 
+        element: <ApplicationPage />,
+      },
+      {
+        path: "/*",
+        element: <ErrorPage></ErrorPage>,
       },
     ],
   },
   {
     path: "/auth",
     element: <h2>authentication layout</h2>,
-  },
-  {
-    path: "/*",
-    element: <h2>error 404</h2>,
   },
 ]);
 

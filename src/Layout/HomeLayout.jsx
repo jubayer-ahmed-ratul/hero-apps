@@ -5,7 +5,7 @@ import { Outlet } from "react-router";
 
 const HomeLayout = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-white ubuntu-font text-black">
+    <div className="min-h-screen flex flex-col bg-white text-black ubuntu-font ">
       <Navbar />
 
       <main className="flex-1">

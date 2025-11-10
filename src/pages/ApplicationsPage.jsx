@@ -6,6 +6,7 @@ const ApplicationsPage = () => {
   const [appsData, setAppsData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
+  const [searching, setSearching] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -14,6 +15,15 @@ const ApplicationsPage = () => {
       .then((data) => setAppsData(data))
       .finally(() => setLoading(false));
   }, []);
+
+  const handleSearchChange = (e) => {
+    setSearching(true);
+    setSearchTerm(e.target.value);
+
+    setTimeout(() => {
+      setSearching(false);
+    }, 300);
+  };
 
   const filteredApps = appsData.filter((app) =>
     app.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -27,7 +37,7 @@ const ApplicationsPage = () => {
       </p>
     );
 
-  if (filteredApps.length === 0) {
+  if (!loading && filteredApps.length === 0) {
     navigate("/no-apps", { replace: true });
     return null;
   }
@@ -70,10 +80,17 @@ const ApplicationsPage = () => {
               type="search"
               placeholder="Search apps..."
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={handleSearchChange}
             />
           </label>
         </div>
+
+        {searching && (
+          <p className="text-center py-5 font-bold text-2xl">
+            <span className="loading loading-spinner text-primary"></span>{" "}
+            Searching...
+          </p>
+        )}
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-10">
           {filteredApps.map((app) => (

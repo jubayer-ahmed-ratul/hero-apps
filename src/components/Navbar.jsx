@@ -1,29 +1,37 @@
 import React from "react";
 import { Github } from "lucide-react";
-import logo from "../assets/logo.png" ;
+import logo from "../assets/logo.png";
 import { Link } from "react-router";
 import ApplicationsPage from "../pages/ApplicationsPage";
 
 const Navbar = () => {
   const menuItems = (
     <>
-     
-      <li><Link className="text-purple-800 font-semibold text-xl" to="/">Home</Link></li>
-      <li><Link className="text-purple-800 font-semibold text-xl" to="/apps">Apps</Link></li>
-      <li><Link className="text-purple-800 font-semibold text-xl" to="/installations">Installation</Link></li>
-    
+      <li>
+        <Link className="text-purple-800 font-semibold text-xl" to="/">
+          Home
+        </Link>
+      </li>
+      <li>
+        <Link className="text-purple-800 font-semibold text-xl" to="/apps">
+          Apps
+        </Link>
+      </li>
+      <li>
+        <Link
+          className="text-purple-800 font-semibold text-xl"
+          to="/installations"
+        >
+          Installation
+        </Link>
+      </li>
     </>
   );
 
   return (
     <div className="bg-white shadow-sm">
-
       <div className="max-w-[1400px] mx-auto navbar">
-
-    
         <div className="navbar-start">
-          
-
           <div className="dropdown">
             <button tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
@@ -49,7 +57,6 @@ const Navbar = () => {
             </ul>
           </div>
 
-         
           <div className="flex items-center gap-1">
             <img className="h-10 w-auto" src={logo} alt="Logo" />
             <a className=" text-2xl text-purple-800 font-bold normal-case">
@@ -58,16 +65,20 @@ const Navbar = () => {
           </div>
         </div>
 
-       
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{menuItems}</ul>
         </div>
 
         <div className="navbar-end">
-          <button className="btn text-white bg-linear-to-r from-purple-800 to-purple-600 px-6 py-6 text-lg gap-2 hover:scale-105 transition-all">
-            <Github size={32} className="rounded-full p-1" />
-            <span className="font-semibold">Contribute</span>
-          </button>
+          <a
+            href="https://github.com/jubayer-ahmed-ratul"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn text-white bg-gradient-to-r from-purple-800 to-purple-600 px-6 py-2 text-lg gap-2 hover:scale-105 transition-all flex items-center"
+          >
+            <Github size={24} className="rounded-full p-1" />
+            <span className="font-semibold ml-2">Contribute</span>
+          </a>
         </div>
       </div>
     </div>
