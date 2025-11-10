@@ -7,7 +7,7 @@ const HeroSection = () => {
   return (
     <section className="text-center pt-10 px-4 bg-[#f5f5f5] flex flex-col items-center">
       
-      <h1 className="text-5xl md:text-6xl font-bold">
+      <h1 className="text-5xl  md:text-6xl font-bold ">
         We Build <br />
         <span className="bg-gradient-to-r from-purple-800 to-purple-600 text-transparent bg-clip-text ">
           Productive 
@@ -23,16 +23,28 @@ const HeroSection = () => {
       </p>
 
     
-      <div className="flex justify-center gap-4 mt-8 flex-wrap">
-        <button className="btn bg-white py-6 border-2 border-gray-500 ">
-          <img src={playstore} alt="Play Store" className="h-6 w-auto" />
-          <span>Get it on PlayStore</span>
-        </button>
-        <button className="btn bg-white py-6 border-2 border-gray-500">
-          <img src={appstore} alt="App Store" className="h-6 w-auto" />
-          <span>Download on AppStore</span>
-        </button>
-      </div>
+<div className="flex justify-center gap-4 mt-8 flex-wrap">
+  <a 
+    href="https://play.google.com/store/apps" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="btn bg-white py-6 border border-gray-500 text-black flex items-center gap-2"
+  >
+    <img src={playstore} alt="Play Store" className="h-6 w-auto" />
+    <span>Get it on PlayStore</span>
+  </a>
+
+  <a 
+    href="https://apps.apple.com/app"
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="btn bg-white py-6 border border-gray-500 text-black flex items-center gap-2"
+  >
+    <img src={appstore} alt="App Store" className="h-6 w-auto" />
+    <span>Download on AppStore</span>
+  </a>
+</div>
+
 
       <img className="h-50 md:h-100 mt-10" src={hero} alt="" />
     </section>

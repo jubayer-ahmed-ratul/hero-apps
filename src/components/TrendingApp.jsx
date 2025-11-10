@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Download, Star } from "lucide-react";
 import { Link } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 const TrendingApp = () => {
   const [appsData, setAppsData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchApps = async () => {
@@ -33,10 +35,11 @@ const TrendingApp = () => {
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 ">
-        {appsData.map((app) => (
+        {appsData.slice(0, 8).map((app) => (
           <div
             key={app.id}
-            className="bg-white p-4 rounded-2xl shadow hover:shadow-lg transition"
+            onClick={() => navigate(`/apps/${app.id}`)}
+            className="bg-white p-4 rounded-2xl shadow hover:shadow-lg transition cursor-pointer hover:scale-105"
           >
             <img
               src={app.image}
@@ -63,7 +66,6 @@ const TrendingApp = () => {
         <Link to="/apps">Show ALL</Link>
       </button>
     </section>
-    
   );
 };
 
