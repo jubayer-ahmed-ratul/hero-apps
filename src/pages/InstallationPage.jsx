@@ -2,19 +2,25 @@ import React, { useEffect, useState } from "react";
 import { ChevronDown, Download, Star } from "lucide-react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import PageLoader from "../components/PageLoader"; 
 
 const InstallationPage = () => {
   const [installedApps, setInstalledApps] = useState([]);
   const [sortedApps, setSortedApps] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(true); 
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const apps = JSON.parse(localStorage.getItem("installedApps")) || [];
-    const uniqueApps = Array.from(new Map(apps.map(app => [app.id, app])).values());
-    setInstalledApps(uniqueApps);
-    setSortedApps(uniqueApps);
-    setIsLoading(false); 
+
+    setTimeout(() => {
+      const apps = JSON.parse(localStorage.getItem("installedApps")) || [];
+      const uniqueApps = Array.from(
+        new Map(apps.map((app) => [app.id, app])).values()
+      );
+      setInstalledApps(uniqueApps);
+      setSortedApps(uniqueApps);
+      setIsLoading(false);
+    }, 150);
   }, []);
 
   const sortApps = (order) => {
@@ -41,8 +47,7 @@ const InstallationPage = () => {
   };
 
   if (isLoading) {
-    return null; 
-    
+    return <PageLoader text="Loading Installed Apps..." />;
   }
 
   return (
@@ -53,7 +58,7 @@ const InstallationPage = () => {
 
       {installedApps.length === 0 ? (
         <p className="text-center text-gray-500 mt-10 text-lg">
-          No apps installed yet 
+          No apps installed
         </p>
       ) : (
         <>

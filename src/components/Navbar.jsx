@@ -51,17 +51,19 @@ const Navbar = () => {
             </button>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-white rounded-box mt-3 w-52 p-2 shadow"
             >
               {menuItems}
             </ul>
           </div>
 
           <div className="flex items-center gap-1">
-            <img className="h-10 w-auto" src={logo} alt="Logo" />
-            <a className=" text-2xl text-purple-800 font-bold normal-case">
-              HERO.IO
-            </a>
+            <Link to="/" className="flex items-center gap-1">
+              <img className="h-10 w-auto" src={logo} alt="Logo" />
+              <span className="text-[20px] md:text-2xl text-purple-800 font-bold normal-case">
+                HERO.IO
+              </span>
+            </Link>
           </div>
         </div>
 
@@ -74,7 +76,7 @@ const Navbar = () => {
             href="https://github.com/jubayer-ahmed-ratul"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn text-white bg-gradient-to-r from-purple-800 to-purple-600 px-6 py-2 text-lg gap-2 hover:scale-105 transition-all flex items-center"
+            className="btn text-white bg-gradient-to-r from-purple-800 to-purple-600 px-3 md:px-6 py-2 text-lg gap-2 hover:scale-105 transition-all flex items-center"
           >
             <Github size={24} className="rounded-full p-1" />
             <span className="font-semibold ml-2">Contribute</span>

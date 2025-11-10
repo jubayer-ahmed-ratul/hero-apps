@@ -1,29 +1,39 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Download, Star, ThumbsUp } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from "recharts";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import PageLoader from "../components/PageLoader";
 
 const ApplicationPage = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [app, setApp] = useState(null);
   const [loading, setLoading] = useState(true);
   const [installed, setInstalled] = useState(false);
 
   useEffect(() => {
-    fetch("/allApps.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const foundApp = data.find((item) => item.id === parseInt(id));
-        setApp(foundApp);
+    setTimeout(() => {
+      fetch("/allApps.json")
+        .then((res) => res.json())
+        .then((data) => {
+          const foundApp = data.find((item) => item.id.toString() === id);
 
-        const installedApps =
-          JSON.parse(localStorage.getItem("installedApps")) || [];
-        setInstalled(installedApps.some((a) => a.id === foundApp?.id));
-      })
-      .finally(() => setLoading(false));
-  }, [id]);
+          if (!foundApp) {
+            navigate("/no-apps", { replace: true });
+            return;
+          }
+
+          setApp(foundApp);
+
+          const installedApps =
+            JSON.parse(localStorage.getItem("installedApps")) || [];
+          setInstalled(installedApps.some((a) => a.id === foundApp.id));
+        })
+        .finally(() => setLoading(false));
+    }, 150); 
+  }, [id, navigate]);
 
   const handleInstall = () => {
     setInstalled(true);
@@ -45,18 +55,9 @@ const ApplicationPage = () => {
     });
   };
 
-  if (loading)
-    return (
-      <p className="text-center py-10 font-bold text-3xl">
-        <span className="loading loading-spinner text-primary"></span>
-        Loading...
-      </p>
-    );
+  if (loading) return <PageLoader text="Loading Application..." />;
 
-  if (!app)
-    return (
-      <p className="text-center text-gray-500 mt-10 text-lg">App not found</p>
-    );
+  if (!app) return null; 
 
   const chartData = app.ratings
     .slice()

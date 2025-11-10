@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { Download, Star } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import PageLoader from "../components/PageLoader";
 
 const ApplicationsPage = () => {
   const [appsData, setAppsData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
   const [searching, setSearching] = useState(false);
+
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("/allApps.json")
-      .then((res) => res.json())
-      .then((data) => setAppsData(data))
-      .finally(() => setLoading(false));
+    setTimeout(() => {
+      fetch("/allApps.json")
+        .then((res) => res.json())
+        .then((data) => setAppsData(data))
+        .finally(() => setLoading(false));
+    }, 150);
   }, []);
 
   const handleSearchChange = (e) => {
@@ -29,18 +33,7 @@ const ApplicationsPage = () => {
     app.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  if (loading)
-    return (
-      <p className="text-center py-10 font-bold text-3xl">
-        <span className="loading loading-spinner text-primary"></span>
-        Loading...
-      </p>
-    );
-
-  if (!loading && filteredApps.length === 0) {
-    navigate("/no-apps", { replace: true });
-    return null;
-  }
+  if (loading) return <PageLoader text="Loading Applications..." />;
 
   return (
     <div className="mb-8">
@@ -92,33 +85,39 @@ const ApplicationsPage = () => {
           </p>
         )}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-10">
-          {filteredApps.map((app) => (
-            <div
-              key={app.id}
-              onClick={() => navigate(`/apps/${app.id}`)}
-              className="bg-white p-4 rounded-2xl shadow hover:shadow-lg transition cursor-pointer hover:scale-105"
-            >
-              <img
-                src={app.image}
-                alt={app.title}
-                className="w-full h-70 object-cover rounded-xl mb-4"
-              />
-              <h3 className="text-lg font-semibold mb-2 mt-5">{app.title}</h3>
+        {filteredApps.length === 0 ? (
+          <p className="text-center py-10 text-2xl text-gray-500">
+            App not found
+          </p>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-10">
+            {filteredApps.map((app) => (
+              <div
+                key={app.id}
+                onClick={() => navigate(`/apps/${app.id}`)}
+                className="bg-white p-4 rounded-2xl shadow hover:shadow-lg transition cursor-pointer hover:scale-105"
+              >
+                <img
+                  src={app.image}
+                  alt={app.title}
+                  className="w-full h-70 object-cover rounded-xl mb-4"
+                />
+                <h3 className="text-lg font-semibold mb-2 mt-5">{app.title}</h3>
 
-              <div className="flex justify-between mt-5">
-                <div className="flex gap-3 btn text-green-600 bg-green-100 text-l">
-                  <Download />
-                  <p>{app.downloads}</p>
-                </div>
-                <div className="flex gap-3 btn text-orange-400 bg-orange-100 text-l">
-                  <Star />
-                  <p>{app.ratingAvg}</p>
+                <div className="flex justify-between mt-5">
+                  <div className="flex gap-3 btn text-green-600 bg-green-100 text-l">
+                    <Download />
+                    <p>{app.downloads}</p>
+                  </div>
+                  <div className="flex gap-3 btn text-orange-400 bg-orange-100 text-l">
+                    <Star />
+                    <p>{app.ratingAvg}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

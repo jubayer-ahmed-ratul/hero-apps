@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import image from "../assets/App-Error.png";
+import PageLoader from "./PageLoader"; 
 
 const NoApps = () => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 150);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) return <PageLoader text="Loading..." />;
 
   return (
     <div className="text-center mt-10">
