@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Download, Star } from "lucide-react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 const ApplicationsPage = () => {
   const [appsData, setAppsData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("/allApps.json")
@@ -27,7 +27,6 @@ const ApplicationsPage = () => {
       </p>
     );
 
-  // অ্যাপ পাওয়া না গেলে /no-apps রাউটে পাঠানো
   if (filteredApps.length === 0) {
     navigate("/no-apps", { replace: true });
     return null;
@@ -80,7 +79,7 @@ const ApplicationsPage = () => {
           {filteredApps.map((app) => (
             <div
               key={app.id}
-              onClick={() => navigate(`/apps/${app.id}`)} 
+              onClick={() => navigate(`/apps/${app.id}`)}
               className="bg-white p-4 rounded-2xl shadow hover:shadow-lg transition cursor-pointer hover:scale-105"
             >
               <img
