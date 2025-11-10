@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ChevronDown, Download, Star } from "lucide-react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import PageLoader from "../components/PageLoader"; 
+import PageLoader from "../components/PageLoader";
 
 const InstallationPage = () => {
   const [installedApps, setInstalledApps] = useState([]);
@@ -11,7 +11,6 @@ const InstallationPage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-
     setTimeout(() => {
       const apps = JSON.parse(localStorage.getItem("installedApps")) || [];
       const uniqueApps = Array.from(
@@ -23,10 +22,25 @@ const InstallationPage = () => {
     }, 150);
   }, []);
 
+  // ✅ Convert "3M", "500K" into actual numbers
+  const parseDownloads = (value) => {
+    const num = parseFloat(value);
+    if (value.toLowerCase().includes("m")) return num * 1000000;
+    if (value.toLowerCase().includes("k")) return num * 1000;
+    return num;
+  };
+
+  // ✅ Sorting by downloads (fixed)
   const sortApps = (order) => {
-    const sorted = [...installedApps].sort((a, b) =>
-      order === "high" ? b.ratingAvg - a.ratingAvg : a.ratingAvg - b.ratingAvg
-    );
+    const sorted = [...installedApps].sort((a, b) => {
+      const downloadA = parseDownloads(a.downloads);
+      const downloadB = parseDownloads(b.downloads);
+
+      return order === "high"
+        ? downloadB - downloadA
+        : downloadA - downloadB;
+    });
+
     setSortedApps(sorted);
     setIsOpen(false);
   };
@@ -36,13 +50,10 @@ const InstallationPage = () => {
     setInstalledApps(filtered);
     setSortedApps(filtered);
     localStorage.setItem("installedApps", JSON.stringify(filtered));
+
     toast.info(`${title} uninstalled successfully!`, {
       position: "top-right",
       autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
     });
   };
 
@@ -69,6 +80,7 @@ const InstallationPage = () => {
             >
               Sort By <ChevronDown className="ml-2 h-4 w-4 text-gray-600" />
             </button>
+
             {isOpen && (
               <ul className="absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
                 <li>
@@ -76,7 +88,7 @@ const InstallationPage = () => {
                     onClick={() => sortApps("high")}
                     className="block w-full text-left px-4 py-2 hover:bg-gray-100"
                   >
-                    High to Low
+                    High → Low
                   </button>
                 </li>
                 <li>
@@ -84,7 +96,7 @@ const InstallationPage = () => {
                     onClick={() => sortApps("low")}
                     className="block w-full text-left px-4 py-2 hover:bg-gray-100"
                   >
-                    Low to High
+                    Low → High
                   </button>
                 </li>
               </ul>
@@ -118,6 +130,7 @@ const InstallationPage = () => {
                     </div>
                   </div>
                 </div>
+
                 <button
                   onClick={() => handleUninstall(app.id, app.title)}
                   className="px-4 py-2 mt-4 md:mt-0 bg-red-500 text-white rounded-lg hover:bg-red-600 transition"
@@ -129,6 +142,7 @@ const InstallationPage = () => {
           </div>
         </>
       )}
+
       <ToastContainer />
     </div>
   );
