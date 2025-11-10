@@ -4,6 +4,7 @@ import HomeLayout from "../Layout/HomeLayout";
 import ApplicationsPage from "../pages/ApplicationsPage";
 import InstallationPage from "../pages/InstallationPage";
 import ApplicationPage from "../pages/ApplicationPage";
+import NoApps from "../components/NoApps"; 
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: "apps",
         element: <ApplicationsPage />,
+      },
+      {
+        path: "no-apps", 
+        element: <NoApps />,
       },
       {
         path: "installations",

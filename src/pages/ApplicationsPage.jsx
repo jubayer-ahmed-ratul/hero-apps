@@ -27,6 +27,12 @@ const ApplicationsPage = () => {
       </p>
     );
 
+  // অ্যাপ পাওয়া না গেলে /no-apps রাউটে পাঠানো
+  if (filteredApps.length === 0) {
+    navigate("/no-apps", { replace: true });
+    return null;
+  }
+
   return (
     <div className="mb-8">
       <h1 className="text-center mt-15 text-5xl font-bold">
@@ -42,7 +48,7 @@ const ApplicationsPage = () => {
             ({filteredApps.length}) Apps Found
           </h3>
 
-          <label className="input flex items-center border px-3 py-2 rounded-lg">
+          <label className="input flex items-center border-purple-300 px-3 py-2 rounded-lg bg-white">
             <svg
               className="h-[1.5em] opacity-50"
               xmlns="http://www.w3.org/2000/svg"
@@ -97,10 +103,6 @@ const ApplicationsPage = () => {
             </div>
           ))}
         </div>
-
-        {filteredApps.length === 0 && (
-          <p className="text-center text-gray-500 mt-10 text-lg">No apps found</p>
-        )}
       </div>
     </div>
   );
