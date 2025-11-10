@@ -22,10 +22,10 @@ HERO.IO is built with modern development practices, making it easy to extend and
 /////////////
 Technologies Used
 
- React.js
- React Router DOM
- Tailwind CSS
- Lucide React Icons
- React Toastify
- Netlify
+ * React.js
+ * React Router DOM
+ * Tailwind CSS
+ * Lucide React Icons
+ * React Toastify
+ * Netlify
 
