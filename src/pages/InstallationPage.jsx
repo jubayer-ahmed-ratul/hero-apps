@@ -10,19 +10,6 @@ const InstallationPage = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    setTimeout(() => {
-      const apps = JSON.parse(localStorage.getItem("installedApps")) || [];
-      const uniqueApps = Array.from(
-        new Map(apps.map((app) => [app.id, app])).values()
-      );
-      setInstalledApps(uniqueApps);
-      setSortedApps(uniqueApps);
-      setIsLoading(false);
-    }, 150);
-  }, []);
-
-  // ✅ Convert "3M", "500K" into actual numbers
   const parseDownloads = (value) => {
     const num = parseFloat(value);
     if (value.toLowerCase().includes("m")) return num * 1000000;
@@ -30,17 +17,12 @@ const InstallationPage = () => {
     return num;
   };
 
-  // ✅ Sorting by downloads (fixed)
   const sortApps = (order) => {
     const sorted = [...installedApps].sort((a, b) => {
       const downloadA = parseDownloads(a.downloads);
       const downloadB = parseDownloads(b.downloads);
-
-      return order === "high"
-        ? downloadB - downloadA
-        : downloadA - downloadB;
+      return order === "high" ? downloadB - downloadA : downloadA - downloadB;
     });
-
     setSortedApps(sorted);
     setIsOpen(false);
   };
@@ -56,6 +38,25 @@ const InstallationPage = () => {
       autoClose: 2000,
     });
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      const apps = JSON.parse(localStorage.getItem("installedApps")) || [];
+      const uniqueApps = Array.from(
+        new Map(apps.map((app) => [app.id, app])).values()
+      );
+      setInstalledApps(uniqueApps);
+
+      const sortedDefault = [...uniqueApps].sort((a, b) => {
+        const downloadA = parseDownloads(a.downloads);
+        const downloadB = parseDownloads(b.downloads);
+        return downloadB - downloadA;
+      });
+      setSortedApps(sortedDefault);
+
+      setIsLoading(false);
+    }, 150);
+  }, []);
 
   if (isLoading) {
     return <PageLoader text="Loading Installed Apps..." />;
