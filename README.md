@@ -39,4 +39,41 @@ HERO.IO is built with modern development practices, making it easy to extend and
 
 ---
 
+## 💻 Local Development Setup
+
+Follow these instructions to run HERO.IO locally.
+
+### **Prerequisites**
+- Node.js (v14 or higher)  
+- npm (comes with Node.js)  
+- Optional: imgbb API Key (for image uploads if needed)
+
+### **Setup Steps**
+1. Clone the repository:
+git clone https://github.com/jubayer-ahmed-ratul/plateshare_client.git
+
+2. Navigate to the project folder:
+cd plateshare_client
+
+3. Install dependencies:
+npm install
+
+4. Start the development server:
+npm run dev
+
+6. Open your browser at:
+[[npm run dev](http://localhost:5173)](http://localhost:5173)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
